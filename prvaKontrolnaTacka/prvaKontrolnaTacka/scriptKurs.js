@@ -87,11 +87,54 @@ if (izmeniButton) {
         console.log("click")
         var url_string = window.location.href;
         var url = new URL(url_string);
-        var c = url.searchParams.get("naziv");
-        console.log(c);
 
+        var autor = url.searchParams.get("autor");
+        console.log(autor);
+        var autorTd = document.getElementById("autorTd") ;
+        autorTd.value = autor;
+
+        var brojKorisnika = url.searchParams.get("brojKorisnika");
+        var brojKorisnikaTd = document.getElementById("brojKorisnikaTd");
+        brojKorisnikaTd.value = brojKorisnika;
+
+        var brojLekcija = url.searchParams.get("brojLekcija");
+        var brojLekcijaTd = document.getElementById("brojLekcijaTd");
+        brojLekcijaTd.value = brojLekcija;
+
+        var cena = url.searchParams.get("cena");
+        var cenaTd = document.getElementById('cenaTd');
+        cenaTd.value = cena;
+
+        var jezik = url.searchParams.get("jezik");
+        var jezikTd = document.getElementById('jezikTd');
+        jezikTd.value = jezik;
+
+        var kategorija = url.searchParams.get("kategorija");
+        var kategorijaTd = document.getElementById('kategorijaTd');
+        kategorijaTd.value = kategorija;
+
+        var naziv = url.searchParams.get("naziv");
         var nazivTd = document.getElementById('nazivTd');
-        nazivTd.value = c
+        nazivTd.value = naziv;
+
+        var opis = url.searchParams.get("opis");
+        var opisTd = document.getElementById('opisTd');
+        opisTd.value = opis;
+
+        var prosecnaOcena = url.searchParams.get("prosecnaOcena");
+        var prosecnaOcenaTd = document.getElementById('prosecnaOcenaTd');
+        prosecnaOcenaTd.value = prosecnaOcena;
+
+        var sertifikovan = url.searchParams.get("sertifikovan");
+        var sertifikovanTd = document.getElementById('sertifikovanTd');
+        sertifikovanTd.value = sertifikovan;
+
+        var slika = url.searchParams.get("slika");
+        var slikaTd = document.getElementById('slikaTd');
+        slikaTd.value = slika;
+
+        var izmeniButton = document.getElementById("izmeni-kurs-final");
+        console.log(izmeniButton);
         console.log(nazivTd);
     })
 }

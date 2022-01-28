@@ -37,38 +37,20 @@ document.addEventListener("DOMContentLoaded", function (e) {
     request.send();
 });
 
-// GET by id
-// var getByIdButton = document.getElementById('getByIdButton');
-// getByIdButton.addEventListener('click', function (e) {
-//     var request = new XMLHttpRequest();
 
-//     request.onreadystatechange = function () {
-//         if (this.readyState == 4) {
-//             if (this.status == 200) {
-//                 removeTableRows('oneCar');
 
-//                 var car = JSON.parse(request.responseText);
-//                 appendCarRow('oneCar', car);
-//             } else {
-//                 alert('Error occurred. Car could not be loaded.')
-//             }
-//         }
-//     }
+// PUT
+// var izmeniButton = document.getElementById('izmeni-button');
+// izmeniButton.addEventListener('click', function (e) {
+//     console.log("usao");
+//     console.log(e)
+//     // var carId = carIds[1];
+//     // var car = cars[carId];
+//     // car.year = 2020;
 
-//     request.open('GET', firebaseUrl + '/cars/' + carIds[1] + '.json');
-//     request.send();
-// });
-
-// // PUT
-// var putButton = document.getElementById('putButton');
-// putButton.addEventListener('click', function (e) {
-//     var carId = carIds[1];
-//     var car = cars[carId];
-//     car.year = 2020;
-
-//     var request = new XMLHttpRequest();
-//     request.open('PUT', firebaseUrl + '/cars/' + carId + '.json', true);
-//     request.send(JSON.stringify(car));
+//     // var request = new XMLHttpRequest();
+//     // request.open('PUT', firebaseUrl + '/cars/' + carId + '.json', true);
+//     // request.send(JSON.stringify(car));
 // });
 
 // // DELETE
@@ -79,9 +61,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 //     request.send();
 // });
 
-// *********************************************
-//               POMOCNE FUNCKIJE
-// *********************************************
 var korisnikList = [];
 
 function appendKorisnikRow(position, korisnik) {
@@ -124,6 +103,57 @@ function appendKorisnikRow(position, korisnik) {
     var administratorskeOpcijeViewTd = document.createElement('td')
     console.log(korisnik)
     administratorskeOpcijeViewTd.innerHTML = '<button id="' + korisnik.id + '" type="button" class="btn btn-primary" data-toggle="modal" data-target="#view" >Pregled korisnika</button>'
+    administratorskeOpcijeViewTd.addEventListener('click', function() {
+        var izmeniButton = document.getElementById("izmeni-button");
+         izmeniButton.addEventListener('click', function (e) {
+             console.log("usao");
+             console.log(e)
+
+             var id = korisnik.id;
+             console.log(id)
+
+             var adresaEdit = document.getElementById("adresa").value;
+             korisnik.adresa = adresaEdit;
+
+             var datumEdit = document.getElementById("datum").value;
+             korisnik.datumRodjenja = datumEdit;
+
+             var emailEdit = document.getElementById("email").value;
+             korisnik.email = emailEdit;
+
+             var imeEdit = document.getElementById("imeModal").value;
+             korisnik.ime = imeEdit;
+
+             var sifraEdit = document.getElementById("lozinka").value;
+             korisnik.lozinka = sifraEdit;
+
+             var prezimeEdit = document.getElementById("prezime").value;
+             korisnik.prezime = prezimeEdit;
+
+             var telefonEdit = document.getElementById("telefon").value;
+             korisnik.telefon = telefonEdit;
+
+             var korisnickoImeEdit = document.getElementById("korisnickoIme").value;
+             korisnik.korisnickoIme = korisnickoImeEdit;
+
+            var request = new XMLHttpRequest();
+            request.open('Put', firebaseUrl + '/korisnici/' + korisnik.id + '.json', true);
+            request.send(JSON.stringify(korisnik));
+            console.log("Izvrsena izmena")
+            if (confirm("Izmena je uspesna!")) {
+                window.location.reload();
+            } else {
+                window.location.reload();
+            }
+        //     // var carId = carIds[1];
+        //     // var car = cars[carId];
+        //     // car.year = 2020;
+
+        //     // var request = new XMLHttpRequest();
+        //     // request.open('PUT', firebaseUrl + '/cars/' + carId + '.json', true);
+        //     // request.send(JSON.stringify(car));
+         });
+    })
     korisnikRow.appendChild(administratorskeOpcijeViewTd)
     
     document.getElementById(position).appendChild(korisnikRow);

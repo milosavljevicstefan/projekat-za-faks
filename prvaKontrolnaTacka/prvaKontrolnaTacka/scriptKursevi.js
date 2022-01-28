@@ -92,7 +92,7 @@ function appendKursRow(position, kurs) {
         var pathStrSplit = longPath.split('/')
         const fileName =pathStrSplit.pop()
         const directoryName = pathStrSplit.join('/')
-        window.open(directoryName + '/kurs.html?' + 'brojKorisnika=' + kurs.brojKorisnika + '&brojLekcija=' + kurs.brojLekcija + '&cena=' + kurs.cena + '&id=' + kurs.id + '&jezik=' + kurs.jezik + '&kategorija=' + kurs.kategorija + '&naziv=' + kurs.naziv + '&opis=' + kurs.opis + '&prosecnaOcena=' + kurs.prosecnaOcena + '&sertifikovan=' + kurs.sertifikovan + '&slika=' + kurs.slika + '&', "_self")
+        window.open(directoryName + '/kurs.html?' + 'brojKorisnika=' + kurs.brojKorisnika + '&brojLekcija=' + kurs.brojLekcija + '&cena=' + kurs.cena + '&id=' + kurs.id + '&jezik=' + kurs.jezik + '&kategorija=' + kurs.kategorija + '&naziv=' + kurs.naziv + '&opis=' + kurs.opis + '&prosecnaOcena=' + kurs.prosecnaOcena + '&sertifikovan=' + kurs.sertifikovan + '&slika=' + kurs.slika + '&autor=' + kurs.autor + '&', "_self")
     })
     bodyDiv.appendChild(kursButton);
 

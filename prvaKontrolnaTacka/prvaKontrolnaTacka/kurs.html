@@ -217,15 +217,15 @@
                     </div>
                     <div class="form-group">
                       <label>Broj korisnika</label>
-                      <input type="text" class="form-control" id="brojKorisnikaTd">
+                      <input type="number" class="form-control" id="brojKorisnikaTd">
                     </div>
                     <div class="form-group">
                       <label >Broj lekcija</label>
-                      <input type="text" class="form-control" id="brojLekcijaTd">
+                      <input type="number" class="form-control" id="brojLekcijaTd">
                     </div>
                     <div class="form-group">
                       <label>Cena</label>
-                      <input type="text" class="form-control" id="cenaTd">
+                      <input type="number" class="form-control" id="cenaTd">
                     </div>
                     <div class="form-group">
                       <label>Jezik</label>
@@ -243,12 +243,22 @@
                       <label for="exampleInputDate">Opis</label>
                       <input type="text" class="form-control" id="opisTd">
                     </div>
-                    
-            
+                    <div class="form-group">
+                      <label>Prosecna ocena</label>
+                      <input type="number" class="form-control" id="prosecnaOcenaTd">
+                    </div>
+                    <div class="form-group">
+                      <label>Sertifikovan</label>
+                      <input type="text" placeholder="da ili ne" class="form-control" id="sertifikovanTd">
+                    </div>
+                    <div>
+                      <label>Slika url</label>
+                      <input type="text" class="form-control" id="slikaTd">
+                    </div>
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <button type="submit" class="btn btn-warning" style="float: left;">Izmeni</button>
+                  <button type="submit" class="btn btn-warning" style="float: left;"  id="izmeni-kurs-final">Izmeni</button>
                   
                 </div>
               </div>
