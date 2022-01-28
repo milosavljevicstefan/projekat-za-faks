@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Moj Super Sajt!!!</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </head>
+    <body style="background: rgb(235, 233, 233);">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="./index.html">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="./korisnici.html">Korisnici</a>
+          </div>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Pretraga" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pretraga</button>
+          </form>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a data-toggle="modal" data-target="#cart" class="nav-link"><i class="bi bi-cart" style="color: white;"></i></a>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="modal" data-target="#log-in" class="nav-link">Prijavi se</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Odjavi se</a>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="modal" data-target="#register" class="nav-link">Registruj se</a>
+            </li>
+          </ul>
+        </div>
+
+        
+        
+        <!--Log in modal-->
+        <div class="modal fade" id="log-in" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Prijava</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email adresa</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Unesite email adresu">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Lozinka</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Unesite lozinku">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Pošalji</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal" style="float: right;">Zatvori</button>
+                </form>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <!--Register modal-->
+        <div class="modal fade" id="register" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Registracija</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="exampleInputUsername">Korisničko ime</label>
+                    <input type="text" class="form-control" placeholder="Unesite korisničko ime">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputName">Ime</label>
+                    <input type="text" class="form-control" placeholder="Unesite ime">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputLastname">Prezime</label>
+                    <input type="text" class="form-control" placeholder="Unesite prezime">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputDate">Datum rodjenja</label>
+                    <input type="date" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Adresa stanovanja</label>
+                    <input type="text" class="form-control" placeholder="Unesite adresu stanovanja">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Broj telefona</label>
+                    <input type="text" class="form-control" placeholder="Unesite broj telefona">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email adresa</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Unesite email adresu">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Šifra</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Unesite šifru">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Pošalji</button>
+                  <button type="button" class="btn btn-danger data-dismiss="modal" style="float: right;">Zatvori</button>
+                </form>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <!--Cart modal-->
+        <div class="modal fade" id="cart" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Internet korpa</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                  
+                  <div>
+                    <div class="row" style="padding-top: 2%;">
+                      <div class="col-4">Java</div>
+                      <div class="col-4">14000din</div>
+                      <div class="col"><button type="button" class="btn btn-outline-danger" style="float: right;">Obrisi</button></div>
+                    </div>
+                    <div class="row" style="padding-top: 2%;">
+                      <div class="col-4">Python</div>
+                      <div class="col-4" >1000 din</div>
+                      <div class="col"><button type="button" class="btn btn-outline-danger" style="float: right;">Obrisi</button></div>
+                    </div>
+                    <div class="row" style="padding-top: 2%;">
+                      <div class="col-4">Cobra</div>
+                      <div class="col-4">12135 din</div>
+                      <div class="col"><button type="button" class="btn btn-outline-danger" style="float: right;">Obrisi</button></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-4">Ukupno</div>
+                      <div class="col-4">123412 din</div>
+                      <div class="col"><button type="button" class="btn btn-success" style="float: right;">Kupi</button></div>
+                    </div>
+                  </div>
+                
+              </div>
+           </div>
+        </div>
+        </nav>
+          <div class="container" style="padding-top: 5%; padding-bottom: 5%;">
+            <div class="row">
+              <div class="col">
+              </div>
+              <div class="col-6">
+                <h1 style="text-align: center;">Profil korisnika</h1>
+                <form>
+                    <div class="form-group">
+                      <label for="exampleInputUsername">Korisničko ime</label>
+                      <input type="text" class="form-control" placeholder="Unesite korisničko ime" value="petar">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputName">Ime</label>
+                      <input type="text" class="form-control" placeholder="Unesite ime" value="Petar">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputLastname">Prezime</label>
+                      <input type="text" class="form-control" placeholder="Unesite prezime" value="Petrovic">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputDate">Datum rodjenja</label>
+                      <input type="date" class="form-control" value="1994-10-22">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Adresa stanovanja</label>
+                      <input type="text" class="form-control" placeholder="Unesite adresu stanovanja" value="Gogoljeva 39, Novi Sad">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Broj telefona</label>
+                      <input type="text" class="form-control" placeholder="Unesite broj telefona" value="061456456">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email adresa</label>
+                      <input type="email" class="form-control" placeholder="Unesite email adresu" value="ppetrovic@webd.com">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInput">Lozinka</label>
+                      <input type="password" class="form-control" value="petar123">
+                    </div>
+                    <button class="btn btn-warning">Izmeni</button>
+                    <button type="button" class="btn btn-danger" style="float: right;">Izbriši</button>
+                  </form>
+              </div>
+              <div class="col">
+              </div>
+            </div>
+          </div>
+          
+          <footer class="bg-light text-center text-white">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
+              <!-- Section: Social media -->
+              <section class="mb-4">
+                <!-- Facebook -->
+                <a
+                  class="btn btn-primary btn-floating m-1"
+                  style="background-color: #3b5998;"
+                  href="#!"
+                  role="button"
+                  >
+                  <i class="bi bi-facebook"></i>
+                </a>
+          
+                <!-- Twitter -->
+                <a
+                  class="btn btn-primary btn-floating m-1"
+                  style="background-color: #55acee;"
+                  href="#!"
+                  role="button"
+                  ><i class="bi bi-twitter"></i
+                ></a>
+          
+                <!-- Google -->
+                <a
+                  class="btn btn-primary btn-floating m-1"
+                  style="background-color: #dd4b39;"
+                  href="#!"
+                  role="button"
+                  ><i class="bi bi-google"></i
+                ></a>
+          
+                <!-- Instagram -->
+                <a
+                  class="btn btn-primary btn-floating m-1"
+                  style="background-color: #7e227e;"
+                  href="#!"
+                  role="button"
+                  ><i class="bi bi-instagram"></i
+                ></a>
+                <!-- Github -->
+                <a
+                  class="btn btn-primary btn-floating m-1"
+                  style="background-color: #333333;"
+                  href="#!"
+                  role="button"
+                  ><i class="bi bi-github"></i
+                ></a>
+              </section>
+            </div>       
+          </footer>
+    </body>
+</html>
