@@ -5,6 +5,8 @@ var korisniciId = [];
 var korisnici = {};
 
 
+
+
 // GET all korisnici
 document.addEventListener("DOMContentLoaded", function (e) {
     var request = new XMLHttpRequest();
@@ -38,28 +40,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 
-
-// PUT
-// var izmeniButton = document.getElementById('izmeni-button');
-// izmeniButton.addEventListener('click', function (e) {
-//     console.log("usao");
-//     console.log(e)
-//     // var carId = carIds[1];
-//     // var car = cars[carId];
-//     // car.year = 2020;
-
-//     // var request = new XMLHttpRequest();
-//     // request.open('PUT', firebaseUrl + '/cars/' + carId + '.json', true);
-//     // request.send(JSON.stringify(car));
-// });
-
-// // DELETE
-// var deleteButton = document.getElementById('deleteButton');
-// deleteButton.addEventListener('click', function (e) {
-//     var request = new XMLHttpRequest();
-//     request.open('DELETE', firebaseUrl + '/cars/' + carIds[2] + '.json', true);
-//     request.send();
-// });
 
 var korisnikList = [];
 
@@ -106,6 +86,7 @@ function appendKorisnikRow(position, korisnik) {
     administratorskeOpcijeViewTd.addEventListener('click', function() {
         var izmeniButton = document.getElementById("izmeni-button");
          izmeniButton.addEventListener('click', function (e) {
+            
              console.log("usao");
              console.log(e)
 
@@ -136,23 +117,92 @@ function appendKorisnikRow(position, korisnik) {
              var korisnickoImeEdit = document.getElementById("korisnickoIme").value;
              korisnik.korisnickoIme = korisnickoImeEdit;
 
-            var request = new XMLHttpRequest();
-            request.open('Put', firebaseUrl + '/korisnici/' + korisnik.id + '.json', true);
-            request.send(JSON.stringify(korisnik));
-            console.log("Izvrsena izmena")
-            if (confirm("Izmena je uspesna!")) {
-                window.location.reload();
+             var errorElement = document.getElementById("errorEdit");
+             let msg = []
+
+            if (korisnickoImeEdit.trim() === '' || korisnickoImeEdit.trim() == null) {
+                msg.push('Korisnicko ime ne sme biti prazno!')
+            }
+
+            if (imeEdit.trim() === '' || imeEdit.trim() == null) {
+                msg.push('Ime ne sme biti prazno!')
+            }
+
+            if (prezimeEdit.trim() === '' || prezimeEdit.trim() == null) {
+                msg.push('Prezime ne sme biti prazno!')
+            }
+
+            if (adresaEdit.trim() === '' || adresaEdit.trim() == null) {
+                msg.push('Adresa ne sme biti prazna!')
+            }
+
+            if (telefonEdit.trim() === '' || telefonEdit.trim() == null) {
+                msg.push('Telefon ne sme biti prazan!')
+            }
+
+            if (emailEdit.trim() === '' || emailEdit.trim() == null) {
+                msg.push('Email ne sme biti prazan!')
+            }
+
+            if (sifraEdit.trim() === '' || sifraEdit.trim() == null) {
+                msg.push('Lozinka ne sme biti prazna!')
+            }
+
+            if (korisnickoImeEdit.trim().length < 4 || korisnickoImeEdit.trim().length > 13) {
+                msg.push('Korisnicko ime mora biti izmedju 4 i 13 karaktera')
+            }
+            
+            var datumDanasnjiInput = new Date();
+            var dd = String(datumDanasnji.getDate()).padStart(2, '0');
+            var mm = String(datumDanasnji.getMonth() + 1).padStart(2, '0');
+            var yyyy = datumDanasnji.getFullYear();
+
+            var neznamvise = datumEdit.split('-');
+            var datum = new Date(neznamvise[0], neznamvise[1] - 1, neznamvise[2]);        
+
+            if (datum > datumDanasnji) {
+                msg.push('Datum rodjenja ne moze biti u buducnosti!')
+            }
+
+            if (sifraEdit.trim().length < 6 || sifraEdit.trim().length > 13) {
+                msg.push('Lozinka mora biti izmedju 6 i 13 karaktera')
+            }
+
+            if (msg.length > 0) {
+                e.preventDefault()
+                errorElement.innerText = msg.join('\n');
+                
             } else {
+                var request = new XMLHttpRequest();
+                request.open('Put', firebaseUrl + '/korisnici/' + korisnik.id + '.json', true);
+                request.send(JSON.stringify(korisnik));
+                console.log("Izvrsena izmena")
+                if (confirm("Izmena je uspesna!")) {
+                    window.location.reload();
+                } else {
+                    window.location.reload();
+                }
+            }
+         });
+        
+         var obrisiButton = document.getElementById("obrisi-button");
+         console.log(obrisiButton);
+         obrisiButton.addEventListener("click", function () {
+            if (confirm("Potvrdite brisanje naloga!")) {
+                console.log("potvrdjeno");
+                var request = new XMLHttpRequest();
+                request.open('DELETE', firebaseUrl + '/korisnici/' + korisnik.id + '.json', true);
+                request.send();
+                if (confirm("Brisanje korisnika je uspesno!")) {
+                    window.location.reload();
+                } else {
+                    window.location.reload();
+                }
+            } else {
+                console.log("nije potvrdjeno");
                 window.location.reload();
             }
-        //     // var carId = carIds[1];
-        //     // var car = cars[carId];
-        //     // car.year = 2020;
-
-        //     // var request = new XMLHttpRequest();
-        //     // request.open('PUT', firebaseUrl + '/cars/' + carId + '.json', true);
-        //     // request.send(JSON.stringify(car));
-         });
+         })
     })
     korisnikRow.appendChild(administratorskeOpcijeViewTd)
     

@@ -1,7 +1,21 @@
 var firebaseUrl = 'https://prvi-projekat-za-faks-default-rtdb.europe-west1.firebasedatabase.app';
-
+var searchBar = document.getElementById('searchBar');
 var kurseviId = [];
 var kursevi = {};
+
+searchBar.addEventListener('keyup', (e) => {
+    const searchString = e.target.value;
+    var kurseviSearch = Object.values(kursevi);
+    kurseviSearch.push()
+    removeKursevi('sviKursevi');
+    const filteredKursevi = kurseviSearch.filter( kurs => {
+        return kurs.naziv.toLowerCase().includes(searchString.toLowerCase()) || kurs.kategorija.toLowerCase().includes(searchString.toLowerCase()) || kurs.autor.toLowerCase().includes(searchString.toLowerCase());
+    });
+    for (var i = 0; i < filteredKursevi.length; i++) {
+        appendKursRow('sviKursevi', filteredKursevi[i]);
+        
+    }
+});
 
 // GET all kursevi
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -79,6 +93,16 @@ function appendKursRow(position, kurs) {
     opisP.innerText = seckano + '...';
     bodyDiv.appendChild(opisP);
 
+    var kategorijaP = document.createElement('p');
+    kategorijaP.className = "card-text";
+    kategorijaP.innerText = "Kategorija: " + kurs.kategorija;
+    bodyDiv.appendChild(kategorijaP);
+
+    var autorP = document.createElement('p');
+    autorP.className = "card-text";
+    autorP.innerHTML = "Autor: " + kurs.autor
+    bodyDiv.appendChild(autorP);
+
     var cenaP = document.createElement('p');
     cenaP.className = "card-text";
     cenaP.innerText = "Cena: " + kurs.cena + " din"
@@ -100,4 +124,12 @@ function appendKursRow(position, kurs) {
     kursRow.appendChild(cardDiv);
 
     document.getElementById(position).appendChild(kursRow)
+}
+
+// Brise sve redove iz tabele
+function removeKursevi(kursBody) {
+    var kursBody = document.getElementById(kursBody);
+    while (kursBody.firstChild) {
+        kursBody.removeChild(kursBody.lastChild);
+    }
 }

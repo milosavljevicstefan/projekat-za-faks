@@ -20,10 +20,7 @@
           <div class="navbar-nav">
             <a class="nav-item nav-link" href="./korisnici.html">Korisnici</a>
           </div>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Pretraga" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pretraga</button>
-          </form>
+          
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
           <ul class="navbar-nav">
@@ -55,18 +52,19 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
               <div class="modal-body">
-                <form>
+                <form id="forma-prijave">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email adresa</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Unesite email adresu">
+                    <input id="email-prijave" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Unesite email adresu">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Lozinka</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Unesite lozinku">
+                    <input id="lozinka-prijave" type="password" class="form-control" placeholder="Unesite lozinku">
                   </div>
                   <button type="submit" class="btn btn-primary">Pošalji</button>
                   <button type="button" class="btn btn-danger data-dismiss="modal" style="float: right;">Zatvori</button>
                 </form>
+                <script src="auth.js"></script>
               </div>
             </div>
             
@@ -84,42 +82,44 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
               <div class="modal-body">
-                <form>
+                <div id="error" style="color: red;"></div>
+                <form id="validateKorisnik">
                   <div class="form-group">
                     <label for="exampleInputUsername">Korisničko ime</label>
-                    <input type="text" class="form-control" placeholder="Unesite korisničko ime">
+                    <input id="korisnickoImeInput" type="text" class="form-control" placeholder="Unesite korisničko ime" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputName">Ime</label>
-                    <input type="text" class="form-control" placeholder="Unesite ime">
+                    <input id="imeInput" type="text" class="form-control" placeholder="Unesite ime" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputLastname">Prezime</label>
-                    <input type="text" class="form-control" placeholder="Unesite prezime">
+                    <input id="prezimeInput" type="text" class="form-control" placeholder="Unesite prezime" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputDate">Datum rodjenja</label>
-                    <input type="date" class="form-control">
+                    <input id="datumRodjenjaInput" type="date" class="form-control" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Adresa stanovanja</label>
-                    <input type="text" class="form-control" placeholder="Unesite adresu stanovanja">
+                    <input id="adresaInput" type="text" class="form-control" placeholder="Unesite adresu stanovanja" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Broj telefona</label>
-                    <input type="text" class="form-control" placeholder="Unesite broj telefona">
+                    <input id="telefonInput" type="number" class="form-control" placeholder="Unesite broj telefona" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email adresa</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Unesite email adresu">
+                    <input id="emailInput" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Unesite email adresu" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Šifra</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Unesite šifru">
+                    <input id="lozinkaInput" type="password" class="form-control" id="exampleInputPassword1" placeholder="Unesite šifru" required>
                   </div>
                   <button type="submit" class="btn btn-primary">Pošalji</button>
                   <button type="button" class="btn btn-danger" data-dismiss="modal" style="float: right;">Zatvori</button>
                 </form>
+                <script src="validateKorisnik.js"></script>
               </div>
             </div>
             
